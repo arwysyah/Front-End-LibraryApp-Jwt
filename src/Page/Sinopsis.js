@@ -10,7 +10,7 @@ import { deleteBook } from "../Components/Redux/Actions/books";
 import { updateStatus } from "../Components/Redux/Actions/updatestatus";
 import swal from "sweetalert";
 import decode from "jwt-decode";
-import Wishlist from '../Components/Wishlists'
+
 
 class Sinopsis extends Component {
   constructor(props) {
@@ -210,6 +210,8 @@ class Sinopsis extends Component {
 
                       fontSize: "10px",
                       borderRadius: "10px",
+                      border:'solid',
+                      borderColor:'white',
                       height: "30px"
                     }}
                   >
@@ -288,9 +290,7 @@ class Sinopsis extends Component {
           // onSubmit={this.handleonSubmit}
           // onChange={this.handleChange}
         />
-        <div>
-        <Wishlist whislist='105'/>
-        </div>
+       
       </div>
      
       

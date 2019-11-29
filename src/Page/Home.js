@@ -254,6 +254,7 @@ this.props.dispatch(getTitle(this.state.searchValue)).then(()=>{
             this.setState({currentPage: pageNum})
           }}/>
         </div>
+        <div></div>
       </div>
     );
   }

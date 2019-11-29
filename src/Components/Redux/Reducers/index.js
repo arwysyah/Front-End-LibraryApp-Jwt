@@ -13,6 +13,7 @@ import {getCategories} from './categories'
 
 import {Auth} from './users'
 import {updateStatus} from './updatestatus'
+import {postHistory} from './History'
 
 const appReducer = combineReducers(
     {
@@ -25,9 +26,9 @@ const appReducer = combineReducers(
         getStatus,
         getTitle,
         getCategories,
-        
+        postHistory,
         Auth,
-        updateStatus //seharusnya itu books : books dimana book yg kedua meruapakan value namun karena sama satu saja yang tulis
+        updateStatus
     }
 );
 export default appReducer;

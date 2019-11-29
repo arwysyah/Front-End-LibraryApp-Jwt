@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import decode from 'jwt-decode';
+
 
 class SideNav extends Component {
   constructor(props){
@@ -25,31 +27,49 @@ class SideNav extends Component {
 
   }
   render(){
+    let token = localStorage.jwt  //jwt nama localstoragenya
+    console.log('local',localStorage,token)
+    let profile,username,level,email
+    if(token){
+      profile = decode(token)
+      level = profile.result.level
+      username=profile.result.username
+      email = profile.result.email
+      console.log("ini levelnya",level,username)
+    // console.log("ini profile",profile,level)
+    }
    
   return (
     <div>
       <ul id="slide-out" className="sidenav  lighten-3">
         <li>
-          <div class="user-view">
+          <div className="user-view"
+          style={{height:"400px"}}>
             
             <a href="#user">
               <img
                 className="circle"
-                src="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
+                src="https://avatars0.githubusercontent.com/u/55026697?s=460&v=4" 
                 alt=""
+                style = {{width:'150px',height:"150px"}}
               />
             </a>
             <a href="#name">
-              <span className="black-text name ">Kenzo Ymc</span>
+              <span>Name</span>
+              <p className=" name red-text">{username}</p>
             </a>
             <a href="#email">
-              <span className="black-text email">kenzoymc5@gmail.com</span>
+              <span>Email</span>
+  <span className="red-text email">{email}</span>
             </a>
           </div>
         </li>
         {/* {this.props.level === 1 ?  */}
+       
         <li>
-          <a href="#!">Explore</a>
+
+          <a href="/wishlist/104"
+          >Wishlist</a>
         </li>
         {/* // : ""}  */}
         

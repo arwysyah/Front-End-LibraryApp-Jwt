@@ -3,8 +3,8 @@ import "./NavBar.css";
 const NavBar = props => {
   return (
     <nav>
-      <div className="nav-wrapper purple grey lighten-4">
-        <a href="slide" data-target="slide-out" className="sidenav-trigger ">
+      <div className="nav-wrapper purple black">
+        <a href="slide" data-target="slide-out" className="sidenav-trigger  ">
           <i className="material-icons black-text">menu</i>
         </a>
 
@@ -24,14 +24,15 @@ const NavBar = props => {
             <a href="sl">
               <i
                 data-target="slide-out"
-                className="material-icons sidenav-trigger left black-text"
+                className="material-icons sidenav-trigger left white-text" 
+                style = {{borderBottom:"0px"}}
               >
                 menu
               </i>
             </a>
           </li>
-          <li>
-            <div className="input-field col s8">
+          <li  >
+            <div className="input-field col s8"  >
               <select
                 onChange={props.handleCategories}
                 style={{ textAlign: "center" }}

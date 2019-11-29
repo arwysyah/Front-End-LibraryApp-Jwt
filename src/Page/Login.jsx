@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './Login.css'
 import axios from "axios";
 import {Redirect,Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
 // import AuthService from '../Components/Auth/auth'
 class Login extends Component {
   constructor(props) {
@@ -38,16 +39,22 @@ handleChange =(e) =>{
 handleSubmit=(e)=>{
   e.preventDefault()
   axios.post(`http://localhost:8000/user/login`,this.state.dataPostLogin)
-  .then((res)=>{console.log('ini response',res.data.message);
+  .then((res)=>{console.log('ini res, response',res,res.data.message,res.data.succes);
     if(res.data.succes === 1){
       localStorage.setItem('jwt', res.data.token)
       this.setState({
         loginKey : true
       })
     }
-    else{
-      alert(res.data.message)
-    }
+   
+
+  }).then(()=>{Swal.fire({
+    position: 'top-center',
+    icon: 'success',
+    title: 'Success to Login',
+    showConfirmButton: false,
+    timer: 500
+  })
 
   })
   

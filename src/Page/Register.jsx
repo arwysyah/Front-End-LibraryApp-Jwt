@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 // import { connect } from "tls";
 import axios from "axios";
 // import AuthService from '../Components/Auth/auth'
+import Swal from 'sweetalert2'
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -43,10 +44,16 @@ class Register extends Component {
         console.log("ini data regis", this.state.dataPostRegister);
         window.location.href ="/login"
         
-      })
+      }).then(()=>Swal.fire({
+        position: 'top-center-end',
+        icon: 'success',
+        title: 'Succes to Register',
+        showConfirmButton: false,
+        timer: 2000
+      }))
       .catch(error => {
         console.log(error);
-      });
+      })
 
     // const { name, email, password, level } = this.state.dataPostRegister;
     // const newRegister = {

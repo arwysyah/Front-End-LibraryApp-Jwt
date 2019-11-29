@@ -6,7 +6,7 @@ class Wishlist extends Component{
         
         super(props)
         this.state={
-            wishlist :[]
+            History:[]
         }
     }
     componentDidMount(){

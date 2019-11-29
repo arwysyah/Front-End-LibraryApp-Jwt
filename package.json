@@ -16,7 +16,8 @@
     "redux": "^4.0.4",
     "redux-promise-axios": "0.0.8",
     "redux-promise-middleware": "^6.1.2",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^9.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
