@@ -1,0 +1,40 @@
+
+.row{
+  padding: 10px !important;
+}
+
+.card-image-listcard{
+    height: 300px;
+    background-attachment: fixed;
+    background-color:white;
+    padding: 20px;
+}
+.custom-card-listcard {
+    top: -40px !important;
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    background-color: rgb(184, 176, 176);
+  }
+  .title-no-bg{
+background-color: transparent !important;
+  }
+
+  .title-text-listcard {
+    text-overflow: clip !important;
+    overflow: visible !important;
+    font-size: 13px !important;
+    white-space: wrap !important;
+    width: 90% !important;
+    text-align: center !important;
+    font-family: sans-serif;
+
+  }
+ .card-content {
+   
+  text-align: center !important;
+    text-justify: inter-word;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
