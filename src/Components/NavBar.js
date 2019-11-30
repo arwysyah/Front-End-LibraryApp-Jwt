@@ -12,7 +12,7 @@ const NavBar = props => {
           <ul>
           < a href ="#!">
             <img
-              className="image-thumbn right height = 30px"
+              className="image-thumbn right height "
               src="https://image.flaticon.com/icons/svg/2169/2169566.svg"
               alt=""
             />
@@ -32,12 +32,12 @@ const NavBar = props => {
             </a>
           </li>
           <li  >
-            <div className="input-field col s8"  >
+            <div className="input-field col s8 white-text"  >
               <select
                 onChange={props.handleCategories}
                 style={{ textAlign: "center" }}
               >
-                <option value="">AllCategories</option>
+                <option value="" style ={{color :"white"}}>AllCategories</option>
                 <option value="1">Novel</option>
                 <option value="2">Manga</option>
                 <option value="3">Autobiography</option>

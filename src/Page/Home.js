@@ -177,7 +177,7 @@ this.props.dispatch(getTitle(this.state.searchValue)).then(()=>{
           <input id="search" type="search" required onChange={this.onchangeSearch} style={{color:"black" ,marginLeft:"160px",backgroundColor:"white"}}/>
                
                   <i
-                    className="material-icons black-text" style ={{marginTop :"-5px",left:"120px",width:"10px"}}
+                    className="material-icons white-text" style ={{marginTop :"-5px",left:"120px",width:"10px"}}
                     
                   >
                     search

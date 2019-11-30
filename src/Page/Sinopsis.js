@@ -74,14 +74,15 @@ class Sinopsis extends Component {
             swal("Thank You for Using Our Services!", {
               icon: "success"
             })
-          );
+          ).then(()=>{window.location.href="/"
+
+          })
         } else {
           swal("Your imaginary file is safe!");
+          
         }
         console.log('ini update',newUpdate)
-      }).then(()=>{
-        window.location.href="/"
-      });
+      })
     }
   };
   handleDelete = event => {
@@ -183,19 +184,25 @@ class Sinopsis extends Component {
             <Link to={"/"}>
               <div class="col s12">
                 {" "}
+
+              
                 <a
                   href
-                  className="button_back black-text btn "
+                  className="material-icons btn transparent white  "
                   style={{
                     width: "80px",
 
                     fontSize: "10px",
-                    borderRadius: "10px",
-                    height: "30px"
+                    borderRadius: "4px",
+                    height: "40px"
                   }}
-                >
-                  BACK
-                </a>
+                > 
+                    <i className= "arrow back material-icons " 
+                style = {{width:"50px", fontSize:"45px"}}>
+                arrow_back
+                </i>
+                  
+                 </a>
               </div>
             </Link>
             <div class="col s6">
@@ -205,14 +212,15 @@ class Sinopsis extends Component {
                     className=" back waves-effect waves-light black-text btn modal-trigger "
                     data-target="editmodal1"
                     style={{
-                      marginRight: "10px",
+                      marginLeft: "1130px",
                       width: "80px",
-
+                      
                       fontSize: "10px",
-                      borderRadius: "10px",
-                      border:'solid',
-                      borderColor:'white',
-                      height: "30px"
+                      borderRadius: "4px",
+                    
+                      boxShadow:'2px 3px',
+                      height: "30px",
+                      marginTop:"-105px"
                     }}
                   >
                     EDIT
@@ -222,10 +230,13 @@ class Sinopsis extends Component {
                     onClick={this.handleDelete.bind(this)}
                     className=" edit waves-effect waves-light black-text btn modal-trigger "
                     style={{
+                      marginLeft:'1225px',
                       width: "80px",
                       fontSize: "10px",
-                      borderRadius: "10px",
-                      height: "30px"
+                      borderRadius: "4px",
+                      boxShadow:'2px 3px',
+                      height: "30px",
+                      marginTop:'-150px'
                     }}
                   >
                     DELETE
