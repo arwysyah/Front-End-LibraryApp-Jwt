@@ -16,10 +16,14 @@ class Register extends Component {
       dataPostRegister: {
         username: "",
         email: "",
-        password: ""
+        password: "",
+        emailError:'',
+        passwordError:''
+        
        
+      },
+     
        
-      }
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -35,8 +39,28 @@ class Register extends Component {
     );
   };
 
+  validate =()=>{
+    let emailError=''
+    
+    
+    if(!this.state.dataPostRegister.email.includes("@")){
+      emailError="invalid email"
+    }
+    if(emailError){
+      this.setState({emailError});
+      return true;
+    }
+    return true
+
+  }
+
   handleSubmit = e => {
+    
     e.preventDefault();
+    const isValid =this.validate()
+    if(isValid){
+      console.log(this.state.dataPostRegister.emailError)
+    }
     axios
       .post("http://localhost:8000/user/register", this.state.dataPostRegister)
       .then(res => {
@@ -44,7 +68,8 @@ class Register extends Component {
         console.log("ini data regis", this.state.dataPostRegister);
         window.location.href ="/login"
         
-      }).then(()=>Swal.fire({
+      })
+      .then(()=>Swal.fire({
         position: 'top-center-end',
         icon: 'success',
         title: 'Succes to Register',
@@ -53,7 +78,8 @@ class Register extends Component {
       }))
       .catch(error => {
         console.log(error);
-      })
+      }
+      )
 
     // const { name, email, password, level } = this.state.dataPostRegister;
     // const newRegister = {
@@ -73,6 +99,7 @@ class Register extends Component {
   };
 
   render() {
+   
 
     // let token = localStorage.jwt  //jwt nama localstoragenya
     // console.log('local',localStorage,token)
@@ -111,7 +138,6 @@ class Register extends Component {
                       <label htmlFor="username">Username</label>
                     </div>
                   </div>
-
                   <div className="row">
                     <div className="input-field col s12">
                       <i className="material-icons prefix">email</i>
@@ -123,7 +149,9 @@ class Register extends Component {
                         onChange={this.handleChange}
                       />
                       <label htmlFor="email">Email</label>
+                     
                     </div>
+    <div>{this.state.dataPostRegister.emailError}</div>
                   </div>
 
                   <div className="row">

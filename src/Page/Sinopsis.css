@@ -89,3 +89,13 @@ style={{
     margin-right: -230px !important;
     right:10px;
    }
+   .wishlist{
+   
+    width: 100px ;
+    font-size: 10px;
+    border-radius: 5px;
+    height: 30px;
+    box-shadow: 2px 4px !important;
+    margin-right: -230px !important;
+    right:10px;
+   }

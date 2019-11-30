@@ -45,18 +45,23 @@ handleSubmit=(e)=>{
       this.setState({
         loginKey : true
       })
+
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Success to Login',
+        showConfirmButton: false,
+        timer: 500
+      })
+    }else{
+      alert(res.data.me)
     }
    
 
-  }).then(()=>{Swal.fire({
-    position: 'top-center',
-    icon: 'success',
-    title: 'Success to Login',
-    showConfirmButton: false,
-    timer: 500
   })
+  
 
-  })
+
   
 
 }
@@ -77,6 +82,7 @@ handleSubmit=(e)=>{
   render() {
     if(this.state.loginKey){
       return (
+        
       <Redirect to ="/" />
       )
 

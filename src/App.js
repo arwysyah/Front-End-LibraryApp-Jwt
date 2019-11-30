@@ -9,6 +9,8 @@ import store from './Components/Redux/store';
 import Login from './Page/Login'
 import Register from "./Page/Register";
 import Wishlist from "./Components/Wishlists";
+import History from './Components/History'
+
 
 
 function App() {
@@ -19,7 +21,8 @@ function App() {
       <Route path ="/login" component={Login}/>
       <Route path="/Sinopsis/:id" component={Sinopsis} />
       <Route path = "/register" component={Register}/>
-      <Route path ='/wishlist/:id_user' component={Wishlist}/>
+      <Route path ='/history/:id_user' component={History}/>
+      <Route path ='/wishlists/:id_user' component={Wishlist}/>
 
     </Router>
     </Provider>

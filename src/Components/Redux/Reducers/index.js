@@ -14,6 +14,7 @@ import {getCategories} from './categories'
 import {Auth} from './users'
 import {updateStatus} from './updatestatus'
 import {postHistory} from './History'
+import {postWishlist} from './wishlist'
 
 const appReducer = combineReducers(
     {
@@ -28,7 +29,8 @@ const appReducer = combineReducers(
         getCategories,
         postHistory,
         Auth,
-        updateStatus
+        updateStatus,
+        postWishlist
     }
 );
 export default appReducer;

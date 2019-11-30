@@ -27,14 +27,16 @@ class SideNav extends Component {
 
   }
   render(){
+  
     let token = localStorage.jwt  //jwt nama localstoragenya
     console.log('local',localStorage,token)
-    let profile,username,level,email
+    let profile,username,level,email, id
     if(token){
       profile = decode(token)
       level = profile.result.level
       username=profile.result.username
       email = profile.result.email
+      id= profile.result.id
       console.log("ini levelnya",level,username)
     // console.log("ini profile",profile,level)
     }
@@ -68,15 +70,15 @@ class SideNav extends Component {
        
         <li>
 
-          <a href="/wishlist/104"
-          >Wishlist</a>
+          <a href={`history/${id}`}
+          >History</a>
         </li>
         {/* // : ""}  */}
         
         
         <li>
           
-          <a href="#!">History</a>
+          <a href={`wishlists/${id}`}>Wishlist</a>
         </li>
 {this.props.level === 2 ? <li>
           <a className="modal-trigger" data-target="modal1" href="#!">

@@ -8,8 +8,10 @@ import { getBookbyId } from "../Components/Redux/Actions/books";
 import { putBook } from "../Components/Redux/Actions/books";
 import { deleteBook } from "../Components/Redux/Actions/books";
 import { updateStatus } from "../Components/Redux/Actions/updatestatus";
+import {postHistory} from '../Components/Redux/Actions/History'
 import swal from "sweetalert";
 import decode from "jwt-decode";
+import { postWishlist } from "../Components/Redux/Actions/wishlist";
 
 
 class Sinopsis extends Component {
@@ -24,7 +26,9 @@ class Sinopsis extends Component {
         description: "",
         status: "",
         genre: ""
-      }
+      },
+      user_level:0,
+      user_id: '',
     };
   }
   async componentDidMount() {
@@ -36,6 +40,23 @@ class Sinopsis extends Component {
       data: this.props.data.bookData,
       tempbooks: this.props.data.bookData //tempbook agar data yang ditampilin tidak nerubah
     });
+
+    let token = localStorage.jwt; //jwt nama localstoragenya
+    console.log("local", localStorage, token);
+    if (token) {
+    const  profile = decode(token);
+    const  level = profile.result.level;
+    const id =profile.result.id ;
+    console.log('profile',profile)
+
+    this.setState({
+      user_level:level,
+      user_id:id
+    })
+      
+      console.log("ini levelnya", level);
+      // console.log("ini profile",profile,level)
+    }
     M.AutoInit();
   }
   handleChange = event => {
@@ -44,6 +65,44 @@ class Sinopsis extends Component {
       tempbooks: { ...this.state.tempbooks, [name]: value }
     });
   };
+
+  handleWishlist=(e)=>{
+    const { id } = this.props.match.params;
+    e.preventDefault();
+    if (!localStorage.jwt) {
+      swal(`You didn't have account !
+    Please create your account`).then(() => {
+        window.location.href = "../login";
+      });
+    } else {
+      swal({
+        title: "Are you sure?",
+        text: `      PLEASE KLIK OK TO CONTINUE !
+      `,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+      }).then(async klikOk => {
+        if (klikOk) {
+          const data = {
+              id_user: this.state.user_id,
+              id_book:this.props.match.params.id
+                           }
+            console.log('ini data',data)
+          await this.props.dispatch(postWishlist(data)).then(()=>{
+            swal("Success Add to Your Wishlist");
+
+          })
+        
+        } else {
+          swal("Your imaginary file is safe!");
+          
+        }
+      
+      })
+    }}
+    
+  
   handleBorrow = e => {
     const newUpdate = {
      
@@ -69,14 +128,25 @@ class Sinopsis extends Component {
         dangerMode: true
       }).then(async klikOk => {
         if (klikOk) {
-         
-          await this.props.dispatch(updateStatus(newUpdate,id)).then(() =>
-            swal("Thank You for Using Our Services!", {
-              icon: "success"
-            })
-          ).then(()=>{window.location.href="/"
+          const data = {
+              id_user: this.state.user_id,
+              id_book:parseInt(this.props.match.params.id
+                )             }
+            console.log(data)
+          await this.props.dispatch(postHistory(data)).then(()=>{
 
           })
+         
+          //  .then(() =>
+            
+          
+          // swal("Thank You for Using Our Services!", {
+          //     icon: "success"
+          //   })
+          // )
+          // .then(()=>{window.location.href="/"
+          swal("Your imaginary file is safe!");
+          // })
         } else {
           swal("Your imaginary file is safe!");
           
@@ -147,16 +217,7 @@ class Sinopsis extends Component {
 
   render() {
     console.log("Ini Delete ",this.state.tempbooks.status);
-    let token = localStorage.jwt; //jwt nama localstoragenya
-    console.log("local", localStorage, token);
-    let profile, level;
-    if (token) {
-      profile = decode(token);
-      level = profile.result.level;
-      
-      console.log("ini levelnya", level);
-      // console.log("ini profile",profile,level)
-    }
+
     const {
       // untuk mempersingkat penamaan
       tittle, // karena sudah di declare disini jadi this.state.tempbooksnya berubah menjadi title doang
@@ -206,7 +267,7 @@ class Sinopsis extends Component {
               </div>
             </Link>
             <div class="col s6">
-              {level === 2 ? (
+              {this.state.user_level === 2 ? (
                 <div id="button bold" style={{ marginTop: "10px" }}>
                   <button
                     className=" back waves-effect waves-light black-text btn modal-trigger "
@@ -262,14 +323,24 @@ class Sinopsis extends Component {
         </a>
 
         <div className="card-content1">
-          {level === 1 ? (
+          {this.state.user_level === 1 ? (
+            <div> 
             <button
               onClick={this.handleBorrow}
               className="borrow black-text btn red"
               data-target="borrow_modal"
             >
-              borrow
+              Borrow
             </button>
+             <button
+             onClick={this.handleWishlist}
+             className="wishlist black-text btn yellow"
+             data-target="wishlist_modal"
+             style={{marginLeft:'250px'}}
+           >
+             Wishlist
+           </button>
+           </div>
           ) : (
             ""
           )}

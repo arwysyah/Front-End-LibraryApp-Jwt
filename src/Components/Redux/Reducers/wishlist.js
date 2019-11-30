@@ -6,9 +6,10 @@ const InitialState = {
     isFullfilled: false
 
 }
-export const postHistory = (prevState = InitialState,action) =>{
+
+export const postWishlist = (prevState = InitialState,action) =>{
     switch (action.type) {
-        case "POST_HISTORY_PENDING":
+        case "POST_WISHLIST_PENDING":
             return{
                 ...prevState,
                 isLoading : true,
@@ -17,7 +18,7 @@ export const postHistory = (prevState = InitialState,action) =>{
 
             }
             
-          case "POST_HISTORY_REJECTED":
+          case "POST_WISHLIST_REJECTED":
               return{
                   ...prevState,
                   isLoading: false,
@@ -25,7 +26,7 @@ export const postHistory = (prevState = InitialState,action) =>{
                   
               }
 
-              case "POST_HISTORY_FULFILLED":
+              case "POST_WISHLIST_FULFILLED":
                   return{
                       isLoading : false,
                       isFullfilled:true,
@@ -36,6 +37,4 @@ export const postHistory = (prevState = InitialState,action) =>{
             return prevState
            
     }
-    
-
-} 
+}

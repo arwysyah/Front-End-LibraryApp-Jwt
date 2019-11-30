@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
-class Wishlist extends Component{
+class history extends Component{
     constructor(props){
         
         super(props)
         this.state={
-            History:[]
+            history:[]
         }
     }
     componentDidMount(){
-        // axios.get(`http://localhost:8000/wishlists/${this.props.match.params.id_user}`)
+        // axios.get(`http://localhost:8000/historys/${this.props.match.params.id_user}`)
         // .then(res=>{
         //     console.log("ini res",res)
         // })
-        axios.get(`http://localhost:8000/wishlists/${this.props.match.params.id_user}`).then(result => {
+        axios.get(`http://localhost:8000/history/${this.props.match.params.id_user}`).then(result => {
            this.setState({
-               wishlist: result.data.response
+               history: result.data.response
            }) 
         console.log(result.data)
             console.log(this.props.match.params.id_user)
-            console.log(this.state.wishlist)
+            console.log(this.state.history)
         }).catch(err => {
             console.log(err)
             console.log(this.props.match.params.id_user)
@@ -34,13 +35,18 @@ class Wishlist extends Component{
         return(
 
           <div className="container">
-              <h4>This is Your Wishlist</h4>
+              <center>
+              <h4>This is Your history</h4>
+              </center>
+              
               <table>
                   <thead>
                       <tr>
-                          <th>Username</th>
+                         
                           <th>Title</th>
                           <th>Image</th>
+                          <th>Borrow At</th>
+                          <th>Return At</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -48,20 +54,43 @@ class Wishlist extends Component{
                           <td>a</td>
                           <td>b</td>
                       </tr> */}
-                  {this.state.wishlist.map((wishlist,index)=>(
+                  {this.state.history.map((history,index)=>(
                      
                     
                       <tr  key={index}>
                           
-                          <td>{wishlist.username}</td>
-                          <td>{wishlist.tittle}</td>
+                         
+                          <td>{history.tittle}</td>
 
-                          <td><img src= {wishlist.image_url} height="100px" alt ="wish"/> </td>
+                          <td><img src= {history.image_url} height="100px" alt ="wish"/> </td>
+                          <td>{history.borrow_at}</td>
+                          <td>{history.return_at}</td>
                          
                       </tr>
                         ))}
                   </tbody>
               </table>
+              <Link to ={'/'}>
+              
+              <button
+                    
+                    className=" edit waves-effect waves-light black-text btn modal-trigger yellow  "
+                    style={{
+                      
+                      fontSize: "12px",
+                      borderRadius: "4px",
+                      textAlign:'center',
+                      boxShadow:'2px 3px',
+                      height: "30px",
+                      width:'80px',
+                      bottom:"-40px"
+                     
+                    }}
+                  >
+                    Back
+                  </button>
+                  </Link>
+             
           </div>
     );
                 
@@ -70,4 +99,4 @@ class Wishlist extends Component{
 
 }
 
-export default Wishlist
+export default history
