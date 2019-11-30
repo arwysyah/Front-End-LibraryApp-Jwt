@@ -3,7 +3,7 @@ import "./Carousel.css";
 import { Link } from "react-router-dom";
 
 const CardCarousel = props => {
-  const { img, alt, title, author, to } = props;
+  const { img, alt, title, author, } = props;
   return (
     <div
       className="card carousel-item carousel-card z-depth-5"
@@ -11,7 +11,7 @@ const CardCarousel = props => {
     >
      
       <div className="card-image ">
-      <Link to ={to}>
+      <Link to ={props.to}>
         <img className="custom-card-img" src={img} alt={alt} />
         </Link>
         <div className="card-title custom-title ">

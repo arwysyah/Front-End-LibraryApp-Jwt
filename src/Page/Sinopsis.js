@@ -265,7 +265,7 @@ class Sinopsis extends Component {
           {level === 1 ? (
             <button
               onClick={this.handleBorrow}
-              className="borrow  btn red"
+              className="borrow black-text btn red"
               data-target="borrow_modal"
             >
               borrow
