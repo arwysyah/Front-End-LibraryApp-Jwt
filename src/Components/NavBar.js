@@ -35,9 +35,9 @@ const NavBar = props => {
             <div className="input-field col s8 white-text"  >
               <select
                 onChange={props.handleCategories}
-                style={{ textAlign: "center" }}
+                style={{ textAlign: "center", color:"white" }}
               >
-                <option value="" style ={{color :"white"}}>AllCategories</option>
+                <option value="" style ={{color:'blue'}}>AllCategories</option>
                 <option value="1">Novel</option>
                 <option value="2">Manga</option>
                 <option value="3">Autobiography</option>

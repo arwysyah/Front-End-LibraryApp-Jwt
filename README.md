@@ -1,7 +1,6 @@
 
 
-# 👨‍💻 Library-App-ReactRedux
-
+# 👨‍💻 Front-End-LibraryApp-Jwt
 
 
 <p align="center">
@@ -25,7 +24,7 @@
 
 ## Installation
 
-# 📚MY BOOK APP
+# 📚LIBRARY APP
 
 A Collection Of Books Using ReactJS Redux
 
@@ -48,7 +47,7 @@ A Collection Of Books Using ReactJS Redux
 
 ## Table Of Contents
 
-- [Book APP](#book-app)
+- [LIBRARY APP](#book-app)
   - [Table Of Content](#table-of-content)
   - [Build Setup](#build-setup)
   - [Stacks](#stacks)
@@ -59,7 +58,7 @@ A Collection Of Books Using ReactJS Redux
 ## Build Setup
 ```bash
 1. Clone repository
-   `$ git clone https://github.com/kenzoymc/libraryApp-ReactRedux.git
+   `$ git clone https://github.com/arwysyah/Front-End-LibraryApp-Jwt.git
 
 2. Install depedencies
 
@@ -81,9 +80,12 @@ $ nodemon server
 
 - ReactJS
 - Materialize CSS
-- Redux
+-
 - NodeJS
 - Express
+- jsonwebtoken
+
+
 
 ## Dependencies
 
@@ -94,6 +96,7 @@ $ nodemon server
 - [axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
 - [redux](https://www.npmjs.com/package/redux) - Redux is a predictable state container for JavaScript apps.
 
+- []
 ## Aplication Structure
 
 - `index.js` - Entry point of our aplication
@@ -109,7 +112,61 @@ $ nodemon server
 ## Screenshots
  <img 
       alt="Node.js"
-      src="https://raw.githubusercontent.com/kenzoymc/libraryApp-ReactRedux/master/src/asset/Screenshot_2019-11-15%20React%20App.png"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-36-15.png"
+      width="700"/><a href="#">
+      <br>
+       <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-36-16.png"
+      width="700"/><a href="#">
+      <br>
+      <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-02%2003-05-41.png"
+      width="700"/><a href="#">
+      <br>
+      <img 
+      alt="Node.js"
+      src="https://github.com/arwysyah/Front-End-LibraryApp-Jwt/blob/master/src/asset/Screenshot%20from%202019-12-01%2023-45-04.png"
+      width="700"/><a href="#">
+      <br>
+           <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-36-42.png"
+      width="700"/><a href="#">
+      <br>
+      <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-02%2003-04-14.png"
+      width="700"/><a href="#">
+      <br>
+      <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-43-27.png"
+      width="700"/><a href="#">
+      <br>
+      <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-43-31.png"
+      width="700"/><a href="#">
+      <br>
+      <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-43-32.png"
+      width="700"/><a href="#">
+      <br>
+      <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-43-40.png"
+      width="700"/><a href="#">
+      <br>
+       <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-45-04.png"
+      width="700"/><a href="#">
+      <img 
+      alt="Node.js"
+      src="https://raw.githubusercontent.com/arwysyah/Front-End-LibraryApp-Jwt/master/src/asset/Screenshot%20from%202019-12-01%2023-45-15.png"
       width="700"/><a href="#">
       <br>
 

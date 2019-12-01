@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import decode from 'jwt-decode';
-
+import Swal from 'sweetalert2'
 
 class SideNav extends Component {
   constructor(props){
@@ -23,6 +23,7 @@ class SideNav extends Component {
     this.setState({
       token:localStorage.clear()
     })
+  
     window.location.href="./login"
 
   }
