@@ -47,6 +47,7 @@ class history extends Component{
                           <th>Image</th>
                           <th>Borrow At</th>
                           <th>Return At</th>
+                          <th>Action</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -59,12 +60,13 @@ class history extends Component{
                     
                       <tr  key={index}>
                           
-                         
+                        
                           <td>{history.tittle}</td>
 
-                          <td><img src= {history.image_url} height="100px" alt ="wish"/> </td>
+                          <td><img src= {history.image_url} height="150px" alt ="wish"/> </td>
                           <td>{history.borrow_at}</td>
                           <td>{history.return_at}</td>
+                          <td><button>button</button></td>
                          
                       </tr>
                         ))}

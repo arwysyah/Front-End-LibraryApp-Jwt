@@ -15,6 +15,7 @@ import {Auth} from './users'
 import {updateStatus} from './updatestatus'
 import {postHistory} from './History'
 import {postWishlist} from './wishlist'
+import {deleteInWishlist} from './wishlist'
 
 const appReducer = combineReducers(
     {
@@ -30,7 +31,8 @@ const appReducer = combineReducers(
         postHistory,
         Auth,
         updateStatus,
-        postWishlist
+        postWishlist,
+        deleteInWishlist
     }
 );
 export default appReducer;

@@ -12,6 +12,7 @@ import {postHistory} from '../Components/Redux/Actions/History'
 import swal from "sweetalert";
 import decode from "jwt-decode";
 import { postWishlist } from "../Components/Redux/Actions/wishlist";
+import Swal from 'sweetalert2'
 
 
 class Sinopsis extends Component {
@@ -136,6 +137,17 @@ class Sinopsis extends Component {
           await this.props.dispatch(postHistory(data)).then(()=>{
 
           })
+           await this.props.dispatch(updateStatus(newUpdate,id))
+          .then(()=>Swal.fire({
+            position: 'top-center-end',
+            icon: 'success',
+            title: 'Succes Borrow this Book',
+            showConfirmButton: false,
+            timer: 2000
+          })).then(()=>{
+            console.log(newUpdate)
+            window.location.href="/"
+          })
          
           //  .then(() =>
             
@@ -145,7 +157,7 @@ class Sinopsis extends Component {
           //   })
           // )
           // .then(()=>{window.location.href="/"
-          swal("Your imaginary file is safe!");
+         
           // })
         } else {
           swal("Your imaginary file is safe!");
@@ -216,6 +228,7 @@ class Sinopsis extends Component {
   };
 
   render() {
+    
     console.log("Ini Delete ",this.state.tempbooks.status);
 
     const {

@@ -29,7 +29,7 @@ export const updateStatus = (prevstate = Initialstate,action)=>
         ...prevstate,
         isLoading: false,
         isFullfilled: true,
-        bookData: action.payload.data // karrena arraay makanya dimulai dari nol yang dibungkus array
+        bookData: action.payload.data[0]// karrena arraay makanya dimulai dari nol yang dibungkus array
       };
 
 

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-
+import swal from 'sweetalert'
+import {deleteInWishlist} from '../Components/Redux/Actions/wishlist'
+import {connect} from 'react-redux'
 class Wishlist extends Component{
     constructor(props){
         
         super(props)
         this.state={
-            wishlist :[]
+            wishlist :[],
+            id_book:''
         }
     }
     componentDidMount(){
@@ -25,9 +28,38 @@ class Wishlist extends Component{
         })
         
     }
+onWishlist=(id_book)=>{
+     
+    const { id_user } = this.props.match.params;
+    
+   
 
+    swal({
+      title: "Are you sure?",
+      text:
+        "Once deleted, you will not be able to see this in your Wishlist!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(async klikOk => {
+      if (klikOk) {
+        await this.props.dispatch(deleteInWishlist(id_book, id_user)).then(() =>
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success"
+          })
+        //   .then(() => (window.location.href = `/`))
+        );
+      } else {
+        swal("Your imaginary file is safe!");
+      }
+    }).then(()=>{});
+
+
+}
 
     render(){
+        console.log(this.state.id_book)
+       
         
         return(
 
@@ -41,6 +73,7 @@ class Wishlist extends Component{
                           
                           <th>Title</th>
                           <th>Image</th>
+                          <th>Action</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -56,7 +89,28 @@ class Wishlist extends Component{
                         
                           <td>{wishlist.tittle}</td>
 
-                          <td><img src= {wishlist.image_url} height="100px" alt ="wish"/> </td>
+                          <td><img src= {wishlist.image_url} height="150px" alt ="wish"/> </td>
+                          <td> <button
+                    
+                    className=" edit waves-effect waves-light black-text btn modal-trigger green  "
+                    style={{
+                      
+                      fontSize: "12px",
+                      borderRadius: "4px",
+                      textAlign:'center',
+                      boxShadow:'2px 3px',
+                      height: "30px",
+                      width:'80px',
+                      
+                     
+                    }}
+                          onClick={(e) =>{
+                              e.preventDefault()
+                            this.onWishlist(wishlist.id_book)
+                            const { id_user } = this.props.match.params;
+                            console.log(id_user)
+                            console.log(wishlist.id_book)
+                          }}>delete</button></td>
                          
                       </tr>
                         ))}
@@ -91,4 +145,10 @@ class Wishlist extends Component{
 
 }
 
-export default Wishlist
+const mapStateToProps = state => {
+    return {
+    
+      deleteInWishlists: state.deleteInWishlist //namaProps : state.nama file di reducer folder yang di import dari index.js
+    };
+  };
+  export default connect(mapStateToProps)(Wishlist); // menggabungin redux

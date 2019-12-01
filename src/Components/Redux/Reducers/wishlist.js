@@ -38,3 +38,32 @@ export const postWishlist = (prevState = InitialState,action) =>{
            
     }
 }
+export const deleteInWishlist= (prevState=InitialState,action)=>{
+    switch (action.type) {
+        case "DELETE_WISHLIST_PENDING":
+            
+            return{
+                ...prevState,
+                isLoading:false,
+                isRejected:false,
+                isFullfilled:false
+            }
+    
+        case "DELETE_WISHLIST_REJECTED":
+            return{
+                ...prevState,
+                isLoading:false,
+                isRejected:true,
+            }
+            case 'DELETE_WISHLIST_FULLFILLED':
+
+            return{
+                isRejected:false,
+                isFullfilled:true,
+                statusData:action.payload.data.response
+            }
+            default:
+               return  prevState
+    } 
+
+}
