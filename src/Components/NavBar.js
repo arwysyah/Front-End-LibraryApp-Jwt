@@ -27,7 +27,7 @@ const NavBar = props => {
                 className="material-icons sidenav-trigger left white-text" 
                 style = {{borderBottom:"0px"}}
               >
-                menu
+                Menu
               </i>
             </a>
           </li>
