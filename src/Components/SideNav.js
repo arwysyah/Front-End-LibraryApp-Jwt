@@ -43,10 +43,10 @@ class SideNav extends Component {
    
   return (
     <div>
-      <ul id="slide-out" className="sidenav  lighten-3">
+      <ul id="slide-out" className="sidenav  " style ={{backgroundColor:'bisque'}}>
         <li>
           <div className="user-view"
-          style={{height:"400px"}}>
+          style={{height:"450px", width:'300px',backgroundColor:'bisque'}}>
             
             <a href="#user">
               <img
@@ -56,38 +56,41 @@ class SideNav extends Component {
                 style = {{width:'150px',height:"150px"}}
               />
             </a>
+            <p style = {{fontWeight:"bold"}}><center>User Profile</center></p>
             <a href="#name">
-              <span>Name</span>
+              <span style = {{fontWeight:"bold",color:"black"}}>Name</span>
               <p className=" name red-text">{username}</p>
             </a>
             <a href="#email">
-              <span>Email</span>
+              <span style = {{fontWeight:"bold",color:"black"}}>Email</span>
   <span className="red-text email">{email}</span>
             </a>
           </div>
         </li>
-        {/* {this.props.level === 1 ?  */}
-       
+        {this.props.level === 1 ? 
+       <div>
         <li>
 
-          <a href={`history/${id}`}
+          <a style = {{fontWeight:"bold"}} href={`history/${id}`}
           >History</a>
         </li>
-        {/* // : ""}  */}
+       
         
         
         <li>
           
-          <a href={`wishlists/${id}`}>Wishlist</a>
+          <a style = {{fontWeight:"bold"}} href={`wishlists/${id}`}>Wishlist</a>
         </li>
+        </div>
+         : ""}  
 {this.props.level === 2 ? <li>
-          <a className="modal-trigger" data-target="modal1" href="#!">
+          <a className="modal-trigger" data-target="modal1" href="#!" style ={{fontWeight:"bold"}}>
             Add Books
           </a>
         </li> : ""}
         
         <li>
-          <a href="#!"
+          <a className = "log black-text" style={{color:"wheat", width:'300px',fontWeight:"bold"}}
          onClick={this.logout} > {
            (this.state.isToken) ? <p>Logout</p>  :<p>Login</p>
          } </a> 

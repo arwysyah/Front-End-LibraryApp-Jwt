@@ -47,7 +47,7 @@ onWishlist=(id_book)=>{
           swal("Poof! Your imaginary file has been deleted!", {
             icon: "success"
           })
-        //   .then(() => (window.location.href = `/`))
+          .then(() => (window.location.href = `/`))
         );
       } else {
         swal("Your imaginary file is safe!");
